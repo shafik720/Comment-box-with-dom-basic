@@ -20,6 +20,11 @@ document.getElementById('postButton').addEventListener('click',function(){
     let mainCommentdiv = document.createElement('div');
     mainCommentdiv.classList.add('comments-box','border','border-2','p-3','rounded','my-3');
     
+    // creating delete button
+    let deletebtn = document.createElement('span');
+    deletebtn.innerHTML = `<a id="delete" href="#" class="text-danger"><i class="fa-solid fa-trash-can"></i></a>`;
+    
+
     // adding comments
     let commentDiv = document.createElement('div');
     commentDiv.classList.add('comments');
@@ -27,7 +32,8 @@ document.getElementById('postButton').addEventListener('click',function(){
     
     // adding names
     let nameDiv = document.createElement('div');
-    nameDiv.classList.add('name','d-flex','justify-content-end');
+    nameDiv.classList.add('name','d-flex','justify-content-between');
+    nameDiv.appendChild(deletebtn);
     nameDiv.appendChild(h5);
     
     // adding name & comments together
@@ -43,4 +49,9 @@ document.getElementById('postButton').addEventListener('click',function(){
     }
 
     
+})
+
+document.getElementById('delete').addEventListener('click', function(){
+    let commentsBox = document.getElementById('comments-box');
+    commentsBox.style.display = 'none';
 })
